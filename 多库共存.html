@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script>
+		
+		// console.log($);
+		// $(function() {});
+
+		// 两个jQuery版本的文件冲突
+		// 1.12 版本的jQuery释放了对 $ 的控制权
+		$.noConflict();
+		
+		console.log("通过 $ 获取的：" + $().jquery);
+		console.log("通过 jQuery获取的：" + jQuery().jquery);
+	</script>
+
+	<script type="text/javascript">
+		var cc = $.noConflict(true);
+		/*// 如果有其他的库也是使用了 $遍历，那就：
+		// 1 先引用jQuery，然后调用jQuery的 $.noConflict()
+		// 2 调用完成之后，然后，$ 就与jQuery没有关系
+		// 3 如果在想使用 jQuery，需要通过 另外一个函数： jQuery
+		var $ = 123;
+		var jQuery = 456;
+
+
+		// console.log($);
+		// jQuery(function() {});
+
+		cc(function() {
+			cc("button").click(function() {
+				alert(123);
+			});
+		});*/
+	</script>
+
+	
+</head>
+<body>
+	
+	<button>按钮</button>
+</body>
+</html>

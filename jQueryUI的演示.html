@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- 引入jQueryUI的样式 -->
+	<link rel="stylesheet" type="text/css" href="plugin/jquery-ui.css">
+	<!-- 引入jQuery文件 -->
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<!-- 引入jQueryUI的js文件 -->
+	<script src="plugin/jquery-ui.js"></script>
+	<script>
+		$(function() {
+			var availableTags = [
+				"ActionScript",
+				"AppleScript",
+				"Asp",
+				"BASIC",
+				"C",
+				"C++",
+				"Clojure",
+				"COBOL",
+				"ColdFusion",
+				"Erlang",
+				"Fortran",
+				"Groovy",
+				"Haskell",
+				"Java",
+				"JavaScript",
+				"Lisp",
+				"Perl",
+				"PHP",
+				"Python",
+				"Ruby",
+				"Scala",
+				"Scheme"
+			];
+			// autocomplete 实现自动完成效果
+			$( "#autocomplete" ).autocomplete({
+				// 指定数据源
+				source: availableTags
+			});
+
+			// 日期控件
+			$( "#datepicker" ).datepicker({
+				inline: true
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<!-- Autocomplete -->
+	<h2 class="demoHeaders">Autocomplete</h2>
+	<div>
+		<input id="autocomplete" title="type &quot;a&quot;">
+	</div>
+
+	<!-- Datepicker -->
+	<h2 class="demoHeaders">Datepicker</h2>
+	<div id="datepicker"></div>
+</body>
+</html>

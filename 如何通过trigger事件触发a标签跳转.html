@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script>
+		$(function() {
+			// $("a").click(function() {
+			// 	alert(1123);
+			// });
+
+			// 注意：
+			// a标签默认无法直接通过代码触发其跳转的行为，需要在
+			// a标签的内部，放入一个元素，通过触发其内部元素的click事件
+			// 达到触发a标签跳转的目的。
+			$("button").click(function() {
+				$("span").trigger("click");
+			});
+		});
+	</script>
+</head>
+<body>
+	<button>触发a标签跳转</button>
+	<a href="http://www.baidu.com"><span>你好</span></a>
+</body>
+</html>

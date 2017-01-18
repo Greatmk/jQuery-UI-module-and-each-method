@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script>
+		$(function() {
+			// 1 链式编程
+			// 这种可以一直使用 点运算符来调用不同的方法的编程方式，叫做：链式编程
+			$("li")
+				.parent("ul")
+				.parent("div")
+				.siblings("div")
+				.children("div")
+				.html("内容");
+			// 原理： return this;
+
+			/*// 构造函数
+			var Person = function() {
+				this.name = "jack";
+				this.say = function() {
+					console.log("Hello world!");
+
+					// 因为方法没有返回值，所以，返回值是： undefined
+					// this 就是 通过 new Person() 创建出来的对象
+					return this;
+				};
+
+				this.coding = function() {
+					console.log("敲代码");
+					return this;
+				};
+			};
+
+			var p = new Person();
+			// p.say();
+			// p.coding();
+			p.say().coding().say().say().coding().say();*/
+
+
+			// 2 隐式迭代
+			// 隐式 对应的 显示（式）
+			// 迭代：就是遍历循环的意思
+			// 
+			// 所谓的隐式迭代，其实就是jQuery将遍历的过程封装到方法的内部
+			// 也就是：在方法的内部已经完成了 遍历循环的操作。
+			// 那就不需要我们再手动的for循环进行遍历操作了！
+			// 
+			// 这样做的好处： 提高了我们的开发效率，不用我们在手动的写for循环
+			// 
+			// $("div").css("color", "red");
+			// 特点：会将所有的元素进行相同的设置
+			// 如果对获取到的所有元素进行不同的设置，还需要使用 循环来操作
+
+			
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>不约而同（儿童）</li>
+		</ul>
+	</div>
+
+	<div>
+		<div></div>
+	</div>
+</body>
+</html>

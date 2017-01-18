@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="jquery-ui.min.css" />
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .wrapper {
+        width: 400px;
+        margin: 50px auto 0;
+    }
+    
+    .drag-bar {
+        height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
+        text-align: center;
+        background-color: #E6E6E6;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    .resize-item {
+        height: 212px;
+        border: 1px solid #e6e6e6;
+    }
+    
+    .sort-wrapper {
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .sort-item {
+        list-style: none;
+        padding-top: 10px;
+    }
+    
+    .sort-item li {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+    
+    .sort-item li:hover {
+        background-color: #e6e6e6;
+    }
+    </style>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        // $(".wrapper").draggable({
+        //     // opacity: 0.35,          // 改变不透明度
+        //     // cursor: "move"          // 鼠标样式
+        // }).find(".resize-item").resizable({
+        //     // handles: 's',   // 改变大小拖拽方向 ，s：sourth 南
+        // }).find(".sort-item").sortable();
+
+        // 让div 实现课拖动的效果
+        // $(".wrapper").draggable({
+        //     // addClasses: false
+        //     opacity: 0.4
+        // });
+
+        // 改变大小
+        $(".wrapper").find(".resize-item").resizable({
+            handles: 'se'   // 改变大小拖拽方向 ，s：sourth 南
+        });
+
+        // 排序
+        $(".wrapper").find(".sort-item").sortable();
+
+
+        // 与 jQueryUI 类似功能的UI框架：
+        // 
+        // jQuery MiniUI / jQuery EasyUI
+    });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="drag-bar">可拖动、排序、变形的新闻模块</div>
+
+        <div class="resize-item">
+            <div class="sort-wrapper">
+                <ul class="sort-item">
+                    <li>这是第1条新闻!</li>
+                    <li>这是第2条新闻!</li>
+                    <li>这是第3条新闻!</li>
+                    <li>这是第4条新闻!</li>
+                    <li>这是第5条新闻!</li>
+                    <li>这是第6条新闻!</li>
+                    <li>这是第7条新闻!</li>
+                    <li>这是第8条新闻!</li>
+                    <li>这是第9条新闻!</li>
+                    <li>这是第10条新闻!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>复制</title>
+    <style>
+    ul {
+        list-style: none;
+    }
+    
+    li {
+        float: left;
+        width: 200px;
+        height: 200px;
+        background: pink;
+        text-align: center;
+        line-height: 200px;
+        margin: 0 20px 20px 0;
+    }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+    	// $("li").css("opacity", 0.5);
+
+    	// 对页面中的li元素进行不同的设置
+    	// .each() 方法
+    	// 作用：用来循环遍历jQuery对象
+    	// 参数：是一个回调函数，用来对每一个li元素进行不同的处理操作
+    	// 		即：有多少个li元素就会调用多少次这个函数
+    	$("#ulList > li").each(function(index, value) {
+    		// index 表示：索引号
+    		// value 表示：当前元素（是一个DOM对象）
+    		// console.log(index);
+    		// console.log(value);
+
+    		// this 也表示了当前的DOM对象，
+    		// 与 value参数的关系： value === this ====> true
+
+    		// value.style.opacity = (index + 1) / 10;
+    		// this.style.opacity = (index + 1) / 10;
+    		// console.log(this === value);
+    		// 使用jQuery的方式来设置样好似
+    		$(this).css("opacity", (index + 1) / 10);
+    	});
+    	
+    	// 问题：能不能用jQuery中的each方法来遍历普通的数组或者对象？
+    	// var arr = [1, 3, 5, 9];
+    	var obj = {
+    		name: "jack",
+    		age: 19,
+    		gender: "male"
+    	};
+    	// for(var i = ....)
+
+    	// $.each 方法的参数：
+    	// 第一个参数：表示要遍历哪一个数组或者对象
+    	// 第二个参数：表示回调函数
+    	$.each(obj, function(index, value) {
+    		// index 还是索引号
+    		// value 表示 数组中的每一个元素的值
+
+    		console.log("索引号为：" + index + ", 值为：" + value);
+    	});
+    	
+    });
+    </script>
+</head>
+
+<body>
+    <ul id="ulList">
+        <li>什么都看不见 01</li>
+        <li>什么都看不见 02</li>
+        <li>什么都看不见 03</li>
+        <li>什么都看不见 04</li>
+        <li>什么都看不见 05</li>
+        <li>什么都看不见 06</li>
+        <li>什么都看不见 07</li>
+        <li>什么都看不见 08</li>
+        <li>什么都看不见 09</li>
+        <li>什么都看不见 10</li>
+    </ul>
+</body>
+
+</html>

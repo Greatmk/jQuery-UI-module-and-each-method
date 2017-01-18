@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script>
+		// $(function() {});
+		$(document).ready(function() {
+			// 给 按钮A 绑定事件，也是通过单击 按钮A 来触发的事件
+			$("#btnA").on("click", function() {
+				alert("这是按钮A");
+			});
+
+			// 目标：点击按钮B 来触发 按钮A的事件
+			$("#btnB").on("click", function() {
+				// 触发事件
+				// .trigger()     // trigger单词： 触发的意思
+				// .triggerHandler()
+				// 
+				// 区别：triggerHandler() 方法只会触发事件，而不会执行浏览器的默认行为
+
+				// 参数表示，要触发的事件类型
+				// $("#btnA").trigger("click");
+				$("#btnA").triggerHandler("click");
+			});
+
+			$("a").click(function() {
+				alert("a标签的单击事件执行了");
+			});
+
+			// 给文本框绑定 获得焦点事件
+			$("input").on("focus", function() {
+				// alert("adsfasd");
+				console.log(123);
+			});
+			
+			$("#btnC").click(function() {
+				// 触发 a 标签的事件
+				
+				// 无法直接触发a标签的跳转行为
+				// $("a").click();
+				// $("a").trigger("click");
+				// $("a").triggerHandler('click');
+
+				// $("input").focus();
+				// 通过调用 trigger("focus") 不仅会让文本框获得焦点
+				// 还会执行文本框获得焦点的事件
+				 $("input").trigger("focus");
+				// 只会触发 文本框获得焦点的事件，不会获得焦点（浏览器的默认行为）
+				// $("input").triggerHandler("focus");
+			});
+
+			// 阻止浏览器的默认行为 和 取消事件冒泡
+			// return false;
+		});
+	</script>
+</head>
+<body>
+	<button id="btnA">按钮A</button>
+	<button id="btnB">按钮B</button>
+	<button id="btnC">按钮C</button>
+	
+	<!-- 浏览器的默认行为 -->
+
+	<!-- a标签会进行页面跳转 -->
+	<a href="http://www.baidu.com/">百度</a>
+	<!-- 文本框获得焦点 -->
+	<input type="text" name="">
+</body>
+</html>

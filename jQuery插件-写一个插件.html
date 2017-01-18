@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 300px;
+			width: 300px;
+			background-color: hotpink;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script>
+		$(function() {
+			// 写一个jQuery插件
+			// $.fn.插件名 = function() {};
+
+			// 写jQuery插件的注意点：
+			// 
+			// 1 写插件的形式：$.fn.插件名 = function() {};
+			// 2 在函数的内部使用 this 来获取调用这个方法的jQuery对象
+			// 3 可以对 this 进行一系列的操作（能对jQuery对象做什么操作就能对this做什么操作）
+			// 4 在函数内代码的最后最好是，return this; 目的：实现链式编程
+			// 		这样就能够与原生的jQuery对象的使用方式相同！
+			
+			// 创建插件
+			$.fn.changeColor = function(color) {
+				// console.log(123);
+				// this 是一个jQuery对象
+				// console.log(this);
+
+				// this 就指向了 调用 这个方法的对象
+				this.css("background", color);
+
+				// 为了实现链式编程
+				return this;
+			};
+
+			// 使用插件
+			$("button").click(function() {
+				// 目的：用来改变div的颜色
+				// 拿到文本框的值
+				var txt = $(this).text();
+
+				$("div").changeColor(txt).text("adsfadsf");
+			});
+		});
+	</script>
+</head>
+<body>
+	<button>red</button>
+	<button>blue</button>
+	<button>green</button>
+	<div></div>
+</body>
+</html>

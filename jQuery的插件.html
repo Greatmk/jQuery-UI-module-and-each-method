@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 200px;
+			width: 200px;
+			background-color: green;
+		}
+	</style>
+	<!-- 第一步：引入jQuery文件 -->
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<!-- 第二步：引入插件文件 -->
+	<script src="plugin/jquery.color.js"></script>
+	<script>
+		$(function() {
+			// 学习jQuery的插件机制：
+			// 1 如何使用jQuery
+
+			// 让 div 的背景色由绿色变为gold
+			$("button").click(function() {
+				$("div").animate({"background-color": "#ff69b4"}, 2000);
+			});
+
+			// 2 能够写出一个基本的jQuery
+		});
+	</script>
+</head>
+<body>
+	<button>按钮</button>
+	<div></div>
+</body>
+</html>

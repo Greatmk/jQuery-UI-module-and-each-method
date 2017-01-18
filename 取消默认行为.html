@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 400px;
+			width: 400px;
+			background-color: pink;
+			margin: 0 auto;
+			font-size: 30px
+		}
+		div > p {
+			height: 200px;
+			width: 200px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script>
+		// $(function() {});
+		$(document).ready(function() {
+			$("div").click(function() {
+				alert("div的事件");
+			});
+
+			/*$("p").click(function() {
+				alert("p元素的事件");
+
+				// 阻止事件冒泡 和 阻止浏览器的默认行为
+				return false;
+			});*/
+			
+			$("a").click(function(e) {
+				alert("a标签的单击事件");
+				// 阻止浏览器的默认行为
+				// return false;
+				
+				// 停止冒泡
+				 e.stopPropagation();
+				// 阻止默认行为
+				//e.preventDefault();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<p></p>
+	<a href="http://www.baidu.com/">百度</a>
+	</div>
+</body>
+</html>
